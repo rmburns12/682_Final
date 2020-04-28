@@ -1,2 +1,4 @@
-# 682_Final
-My repository for my my UMD GEOG682 final project.
+## GEOG682 Final Project
+# Washington, DC Crime Analysis Mapping
+Rob Burns
+4/28/2020
