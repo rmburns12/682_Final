@@ -10,16 +10,16 @@ Rob Burns
 
 ## Analysis
 
-      This analysis made use of 3 datasets made available by the Washington, DC Office of the Chief Technology Officer as shapefiles on 
+ This analysis made use of 3 datasets made available by the Washington, DC Office of the Chief Technology Officer as shapefiles on 
  the "Open Data DC" website (https://opendata.dc.gov/):
 
-      - "Shot Spotter Gun Shots": A point layer showing the locations of gun shots in DC detected by the DC Metropolitan Police   
-      Department (MPD) Shot Spotter sensor network.
-      - "Ward from 2012": A polygon layer representing the boundaries of DC's 2012 election wards.
-      - "Crime Incidents in 2017": A point layer representing the locations and attributes of crime incidents reported in the 
-      ASAP (Analytical Services Application) by the DC MPD in 2017.
+ 1) "Shot Spotter Gun Shots": A point layer showing the locations of gun shots in DC detected by the DC Metropolitan Police   
+ Department (MPD) Shot Spotter sensor network.
+ 2) "Ward from 2012": A polygon layer representing the boundaries of DC's 2012 election wards.
+ 3) "Crime Incidents in 2017": A point layer representing the locations and attributes of crime incidents reported in the 
+ ASAP (Analytical Services Application) by the DC MPD in 2017.
       
-      The first map provides an analysis of the number of gun crimes committed per 10,000 people in 2017 in each DC ward. This map was 
+The first map provides an analysis of the number of gun crimes committed per 10,000 people in 2017 in each DC ward. This map was 
 created manually within the QGIS 3.4.9 program, using some of the tools and functions within the program to perform the various analysis 
 steps. First, I filtered out only the gun crimes from the "Crime_Incidents_in_2017" layer, within the Query Builder setting the field 
 "METHOD" as equal to the value "GUN". This gave us a point layer of only the gun crime incidents in 2017, which I named 
