@@ -66,4 +66,20 @@ the necessary map components in order to fully complete the map. The resulting m
 
 ![Gun Shots Per 10,000 Ward Residents List, Washington, DC](Gun_Shot_List.jpg)
 
-      
+ 
+ ## Automation
+ 
+ In addition to the analysis done manually within QGIS to build the maps displaying the number of gun incidents per 10,000 residents in 
+ each ward, I created an automated process using pyQGIS within the QGIS Python Console that would automatically perform all of the 
+ functions that I had earlier done manually. This would allow the process to be streamlined by future analysts. Because slightly 
+ different steps were necessary for each of the two analyses, the automation for both were slightly different.
+ 
+First, prior to performing any analysis I had to read in the three shapefiles that formed the base of my analysis. In each case I set the directory path for each shapefile and then read the shapefile in using the "addVectorLayer" command. The code that I used to read in the 2012 DC ward shapefile is included below as an example of the process.
+
+```python
+Districtpath = "S:/682/Spring20/rburns12/Final/Data/Ward_from_2012.shp"
+DCdistricts = iface.addVectorLayer(Districtpath, "DCdistricts", "ogr")
+```
+
+
+ 
