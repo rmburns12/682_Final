@@ -60,4 +60,6 @@ based on the "WARD" field to show which ward was which. I labeled each ward with
 the number of shots detected per 10,000 people in each ward. As with the previous map I used the Print Layout window to add in all of 
 the necessary map components in order to fully complete the map. The resulting map is pictured below.
 
+![Gun Shots Per 10,000 Ward Residents, Washington, DC](Shots_Spot_Per_10K.jpeg)
+
       
