@@ -93,9 +93,9 @@ gun crimes, so we would filter out all others using the "Extract by Attribute" f
 points in which the field "METHOD" had the attribute value "GUN". An example of the manual process will be shown below, with only 
 difference from the original process being that the "Output" field is left blank and will only appear as "memory" for this example.
 
-![Extract Attribute Function(Extract_Attribute.png)
+![Extract Attribute Function(Extract_Attribute.PNG)
 
-![Extract Attribute Function Log Tab](Extract_Attribute_Log.png)
+![Extract Attribute Function Log Tab](Extract_Attribute_Log.PNG)
 
 The above screenshots show the values input for the manual function, as well as the output log code. For the automation I simply used 
 the given log code values with the "qgis:extractbyattribute" command in the Python Console as shown below.
