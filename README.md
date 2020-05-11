@@ -95,10 +95,11 @@ difference from the original process being that the "Output" field is left blank
 
 ![Extract Attribute Function(Extract_Attribute.PNG)
 
+
 ![Extract Attribute Function Log Tab](Extract_Attribute_Log.PNG)
 
 The above screenshots show the values input for the manual function, as well as the output log code. For the automation I simply used 
-the given log code values with the "qgis:extractbyattribute" command in the Python Console as shown below.
+the given log code values with the "qgis:extractbyattribute" command in the Python Console as shown below. AS mentioned, the only difference is that in this real code snippet the "OUTPUT" field has an actual file path while in the earlier example there was none.
 
 ```python
 processing.run("qgis:extractbyattribute",{ 'FIELD' : 'METHOD', 'INPUT' : 
