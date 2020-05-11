@@ -108,8 +108,8 @@ processing.run("qgis:extractbyattribute",{ 'FIELD' : 'METHOD', 'INPUT' :
 ```
 
 From there, using a similar "code reverse engineering method" I used the "Count Points in Polygon" function to count all of the gun 
-crime points in each ward polygon. Then calculated the number of gun crimes in each ward by dividing the number of gun crimes by the 
-population of each ward divided by 10,000. The rest of the code is shown below.
+crime points in each ward polygon. Then using the "Advanced Python Field Calculator" I calculated the number of gun crimes in each ward 
+by dividing the number of gun crimes by the population of each ward divided by 10,000. The rest of the code is shown below.
 
 ```python
 processing.run("qgis:countpointsinpolygon",{ 'CLASSFIELD' : None, 'FIELD' : 'GUNINCIDENTS', 'OUTPUT' : 
