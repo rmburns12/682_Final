@@ -93,7 +93,7 @@ gun crimes, so we would filter out all others using the "Extract by Attribute" f
 points in which the field "METHOD" had the attribute value "GUN". An example of the manual process will be shown below, with only 
 difference from the original process being that the "Output" field is left blank and will only appear as "memory" for this example.
 
-![Extract Attribute Function(Extract_Attribute.PNG)
+![Extract Attribute Function](Extract_Attribute.PNG)
 
 
 ![Extract Attribute Function Log Tab](Extract_Attribute_Log.PNG)
