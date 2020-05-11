@@ -46,6 +46,8 @@ from each other. I labeled each ward with the numeric value of the "GUN_CRIME_PE
 10,000 residents of each ward. Finally, I used the Print Layout window to add in all of the necessary map components. The resulting map 
 is pictured below.
 
+![Gun Crimes Per 10,000 Ward Residents, Washington, DC (2017)](Gun_Crimes_Per_10K.jpeg)
+
 The second map is an analysis of the number of shots detected by Shot Spotter per 10,000 people in 2017 for each ward, also done
 manually in QGIS. No filtering was required for this layer since it already only displayed the relevant points captured by Shot 
 Spotter. I started this processing by using the "Count Points In Polygon" function, using "Shot_Spotter_Gun_Shots" as the point layer 
