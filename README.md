@@ -74,12 +74,15 @@ the necessary map components in order to fully complete the map. The resulting m
  functions that I had earlier done manually. This would allow the process to be streamlined by future analysts. Because slightly 
  different steps were necessary for each of the two analyses, the automation for both were slightly different.
  
-First, prior to performing any analysis I had to read in the three shapefiles that formed the base of my analysis. In each case I set the directory path for each shapefile and then read the shapefile in using the "addVectorLayer" command. The code that I used to read in the 2012 DC ward shapefile is included below as an example of the process.
+Prior to performing any analysis I had to read in the three shapefiles that formed the base of my analysis. In each case I set the directory path for each shapefile and then read the shapefile in using the "addVectorLayer" command. The code that I used to read in the 2012 DC ward shapefile is included below as an example of the process.
 
 ```python
 Districtpath = "S:/682/Spring20/rburns12/Final/Data/Ward_from_2012.shp"
 DCdistricts = iface.addVectorLayer(Districtpath, "DCdistricts", "ogr")
 ```
 
+Once all of the shapefiles were read in, I could begin my analysis of the spatial data. The first section of the automation was the gun crime data. In order to perform my automation, I reverse engineered the necessary code by looking at the settings and values that were used when I ran the relevant function manually in QGIS. In each case the code that was used by the function was output by the "Log" tab of the function's window. I copied the output code and applied those values to the appropriate pyQGIS function in the Python Console. 
+
+As an example of this process, I will use the first function applied to the gun crime data. For this analysis we wanted to look only at gun crimes, so we would filter out all others using the "Extract by Attribute" function. Within this function we wanted to only look at points in which the field "METHOD" had the attribute value "GUN". An example of the manual process will be shown below, with only difference from the original process being that the "Output" field is left blank and will only appear as "memory" for this example.
 
  
