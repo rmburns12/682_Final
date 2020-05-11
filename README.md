@@ -99,7 +99,7 @@ difference from the original process being that the "Output" field is left blank
 ![Extract Attribute Function Log Tab](Extract_Attribute_Log.PNG)
 
 The above screenshots show the values input for the manual function, as well as the output log code. For the automation I simply used 
-the given log code values with the "qgis:extractbyattribute" command in the Python Console as shown below. AS mentioned, the only difference is that in this real code snippet the "OUTPUT" field has an actual file path while in the earlier example there was none.
+the given log code values with the "qgis:extractbyattribute" command in the Python Console as shown below. As mentioned, the only difference is that in this real code snippet the "OUTPUT" field has an actual file path while in the earlier example there was none.
 
 ```python
 processing.run("qgis:extractbyattribute",{ 'FIELD' : 'METHOD', 'INPUT' : 
@@ -107,5 +107,36 @@ processing.run("qgis:extractbyattribute",{ 'FIELD' : 'METHOD', 'INPUT' :
 'S:/682/Spring20/rburns12/Final/Data/Gun_Crimes_2017.shp', 'VALUE' : 'GUN' })
 ```
 
+From there, using a similar "code reverse engineering method" I used the "Count Points in Polygon" function to count all of the gun 
+crime points in each ward polygon. Then calculated the number of gun crimes in each ward by dividing the number of gun crimes by the 
+population of each ward divided by 10,000. The rest of the code is shown below.
 
- 
+```python
+processing.run("qgis:countpointsinpolygon",{ 'CLASSFIELD' : None, 'FIELD' : 'GUNINCIDENTS', 'OUTPUT' : 
+'S:/682/Spring20/rburns12/Final/Data/Gun_Crimes_2017_per_Ward.shp', 'POINTS' : 
+'S:/682/Spring20/rburns12/Final/Data/Gun_Crimes_2017.shp', 'POLYGONS' : 'S:/682/Spring20/rburns12/Final/Data/Ward_from_2012.shp', 
+'WEIGHT' : None })
+Path1= "S:/682/Spring20/rburns12/Final/Data/Gun_Crimes_2017_Per_Ward.shp"
+GunCrimePerWard = iface.addVectorLayer(Path1, "GunCrimePerWard", "ogr")
+processing.run("qgis:advancedpythonfieldcalculator",{ 'FIELD_LENGTH' : 10, 'FIELD_NAME' : 'GunCrimePer10K', 'FIELD_PRECISION' : 3, 
+'FIELD_TYPE' : 0, 'FORMULA' : 'value = <GUNINCIDEN> /(<POP_2010>/10000)', 'GLOBAL' : '', 'INPUT' : 
+'S:/682/Spring20/rburns12/Final/Data/Gun_Crimes_2017_Per_Ward.shp', 'OUTPUT' : 
+'S:/682/Spring20/rburns12/Final/Data/Gun_Crimes_Per_10k.shp' })
+GunGrimePer10K = iface.addVectorLayer('S:/682/Spring20/rburns12/Final/Data/Gun_Crimes_Per_10k.shp', "GunCrimePer10K", "ogr")
+```
+
+The method for calculating the number of gun shots per 10,000 was much the same, minus the filter step. ***[I realized too late that I 
+didn't filter for only the gun shots detected in 2017, that was my bad. By the time I caught it it was too late for me to realistically 
+be able to alter my code. I apologize and I understand that you will need to count off.]*** I counted the number of gun shots in each 
+polygon using the "Count Points in Polygon" function and then used the "Advanced Python Field Calculator" to calculate the number of gun 
+shots divided by ward population divided by 10,000.
+
+After each section of automation I showed my results by printing the resulting calculation of incidents per 10,000 per ward. The code I 
+used to print the number of gun shots per 10,000 ward residents is as follows.
+
+```python
+print("Shots detected by ShotSpotter per 10,000 Residents in each DC Ward in 2017")
+lyr = iface.activeLayer()
+features = lyr.getFeatures()
+for ft in features:print(ft["Ward"],ft["ShotsPer10"])
+```
