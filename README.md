@@ -126,10 +126,11 @@ GunGrimePer10K = iface.addVectorLayer('S:/682/Spring20/rburns12/Final/Data/Gun_C
 ```
 
 The method for calculating the number of gun shots per 10,000 was much the same, minus the filter step. ***[I realized too late that I 
-didn't filter for only the gun shots detected in 2017, that was my bad. By the time I caught it it was too late for me to realistically 
-be able to alter my code. I apologize and I understand that you will need to count off.]*** I counted the number of gun shots in each 
-polygon using the "Count Points in Polygon" function and then used the "Advanced Python Field Calculator" to calculate the number of gun 
-shots divided by ward population divided by 10,000.
+didn't filter for only the gun shots detected in 2017, that was my bad. By the time I caught it on May 11 I felt it was too late for me 
+to realistically be able to alter my code without jeopardizing the project as a whole to filter for only gun shots in 2017. I apologize 
+and I understand that you will need to count off.]*** I counted the number of gun shots in each polygon using the "Count Points in 
+Polygon" function and then used the "Advanced Python Field Calculator" to calculate the number of gun shots divided by ward population 
+divided by 10,000.
 
 After each section of automation I showed my results by printing the resulting calculation of incidents per 10,000 per ward. The code I 
 used to print the number of gun shots per 10,000 ward residents is as follows.
@@ -140,3 +141,30 @@ lyr = iface.activeLayer()
 features = lyr.getFeatures()
 for ft in features:print(ft["Ward"],ft["ShotsPer10"])
 ```
+
+
+## Results
+
+After my analysis of the gun crime and gun shot location data for Washington, DC I was able to find multiple wards that would be well 
+served by an expansion of the Shot Spotter network. More specifically, I believe that I was able to determine two primary candidates 
+(Ward 2 and Ward 3) and one secondary candidate (Ward 8), grouped into categories based on the benefit that would be provided by 
+additional Shot Spotter coverage. 
+
+I recommend that Ward 2 and Ward 3 be given main priority for Shot Spotter covereage due to the current almost total lack of coverage 
+within both wards. Both wards are admittedly relatively safe according to the data, but this apparent safety can also cause a false 
+sense of security relative to real gun crime. A tendency that I found when examining the data was that most wards had a higher number of 
+gun shots then gun crimes. This makes sense to me intuitively in the following sense: Gun crimes only represent individuals who were 
+actually CAUGHT, whereas gun shots represent more the actual level of gun activity in a ward. As a result, you would expect that 
+documented gun crimes would be proportional to, but lower than, detected gun shots. This seems to be the result across Washington with 
+two exceptions: Ward 2 and Ward 3. In both of these wards the data reflected the opposite: gun shots detected were equal to gun crimes 
+in Ward 2 (7 in both) and Ward 3 actually had NO gun shots detected compared to three gun crime incidents. Taking the trend we mentioned 
+earlier into account, of gun shots outnumbering gun crimes, I believe that this reflects not an actual lack of gun shots but simply a 
+lack of detection. There are shots happening that are not being detected, or at least reason to believe so. Indeed, when examining the 
+raw data of gun shot locations from the "Shot_Spotter_Gun_Shots" in QGIS, it appears that gun shots simply stop at the borders of Wards 
+2 and 3 despite major clusters on the other side. I believe that Ward 2 and 3 of DC are not getting the level of Shot Spotter coverage 
+they deserve, especially considering the presence of residential neighborhoods in Ward 3 and US government property in Ward 2. 
+
+A secondary recommendation is additional Shot Spotter coverage in Ward 8. Ward 8 already has the highest number of recorded gunshots and 
+has plenty of shot detections, but the raw data from the Shot Spotter shapefile shows a large chunk of the ward nearer the Potomac River 
+with no gun shots detected. Given the sheer amount of shots detected in the rest of the ward it would benefit the city to extend 
+coverage within the ward to ensure no gaps in coverage for an already critical ward.
