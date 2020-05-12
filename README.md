@@ -128,7 +128,7 @@ GunGrimePer10K = iface.addVectorLayer('S:/682/Spring20/rburns12/Final/Data/Gun_C
 The method for calculating the number of gun shots per 10,000 was much the same, minus the filter step. ***[I realized too late that I 
 didn't filter for only the gun shots detected in 2017, that was my bad. By the time I caught it on May 11 I felt it was too late for me 
 to realistically be able to alter my code without jeopardizing the project as a whole to filter for only gun shots in 2017. I apologize 
-and I understand that you will need to count off.]*** I counted the number of gun shots in each polygon using the "Count Points in 
+and I understand that you will need to count off. However I think this may actually benefit my analysis, which I discuss in the "Limitations" section.]*** I counted the number of gun shots in each polygon using the "Count Points in 
 Polygon" function and then used the "Advanced Python Field Calculator" to calculate the number of gun shots divided by ward population 
 divided by 10,000.
 
@@ -168,3 +168,29 @@ A secondary recommendation is additional Shot Spotter coverage in Ward 8. Ward 8
 has plenty of shot detections, but the raw data from the Shot Spotter shapefile shows a large chunk of the ward nearer the Potomac River 
 with no gun shots detected. Given the sheer amount of shots detected in the rest of the ward it would benefit the city to extend 
 coverage within the ward to ensure no gaps in coverage for an already critical ward.
+
+
+## Limitations
+
+There were three limitations of this analysis. Two of which I believe were true limitations reflecting the data available, one of which 
+was an error of analysis that despite being a "mistake" may have strengthened my case in my recommendations. I will discuss the latter 
+first in this section.
+
+When analyzing the Shot Spotter data, I did not filter out the data for 2017 and instead considered all shots in the data set from 2014-
+2019. At first this seems to be a limitation since comparing shot detections for a five year span to gun crimes for only the year of 
+2017 could skew the data. But I think that the results we got only strengthen my recommendations. Ward 2 had seven gun crimes in just 
+2017 versus seven shots detected in all five years between 2014 and 2019. And Ward 3 had NO gun shots detected in all five years despite 
+having three gun crimes. Taken with the earlier trend of most wards having more gun shots detected then crimes reported, this 
+discrepency only underscores to me that the lower number reported for the five year period versus the single year most likely reflects a 
+lack of coverage within the area rather then an actual lack of gun shot activity.
+
+The two other limitations represent the basic difficulty of gathering data. The first is the simple fact that sparked this entire 
+project: that data is only available when it is first collected. Thus all of our data is constrained by the possiblilty that their exist 
+other incidents that were missed that could skew our data. That is a very real possibility, though hopefully our efforts in this project 
+will rectify that. The other limitation is the limitation of the sensors themselves. The Shot Spotter system is constrained by the 
+technical limitations of the sensors and there is always the possibility that the acoustice properties of DC's urban environment could 
+interfere with its functionality, as well as the system having a documented history of false positives with sounds such as fireworks. 
+There have been attempts to rectify this, but the possibility for mistaken readings remains. (Petho et al, Washington Post, "ShotSpotter 
+detection system documents 39,000 shooting incidents in the District") Still, I believe that the sheer amount of data available here 
+overwhelms the limitations and that this analysis provides an effective method of finding suitable expansion sites for Shot Spotter 
+sensors.
